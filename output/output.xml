@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.8.2 on linux)" generated="20200310 15:50:25.587" rpa="false">
+<suite id="s1" name="Tests" source="/tests/tests.robot">
+<test id="s1-t1" name="tests Firefox">
+<kw name="Open browser">
+<arguments>
+<arg>https://google.com/</arg>
+<arg>Chrome</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${browser}"=="Firefox"</arg>
+<arg>Open firefox browser</arg>
+<arg>${url}</arg>
+<arg>ELSE</arg>
+<arg>Open Chrome browser</arg>
+<arg>${url}</arg>
+</arguments>
+<kw name="Open Chrome browser">
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+</arguments>
+<assign>
+<var>${chrome_options}</var>
+</assign>
+<msg timestamp="20200310 15:50:25.722" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7fa376dc6c70&gt;</msg>
+<status status="PASS" starttime="20200310 15:50:25.722" endtime="20200310 15:50:25.722"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-extensions</arg>
+</arguments>
+<status status="PASS" starttime="20200310 15:50:25.722" endtime="20200310 15:50:25.723"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-gpu</arg>
+</arguments>
+<status status="PASS" starttime="20200310 15:50:25.723" endtime="20200310 15:50:25.723"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+</arguments>
+<status status="PASS" starttime="20200310 15:50:25.723" endtime="20200310 15:50:25.723"></status>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<arguments>
+<arg>Chrome</arg>
+<arg>chrome_options=${chrome_options}</arg>
+</arguments>
+<msg timestamp="20200310 15:50:25.724" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20200310 15:50:25.723" endtime="20200310 15:50:27.057"></status>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<arguments>
+<arg>1920</arg>
+<arg>1280</arg>
+</arguments>
+<status status="PASS" starttime="20200310 15:50:27.058" endtime="20200310 15:50:27.166"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<msg timestamp="20200310 15:50:27.166" level="INFO">Opening url 'https://google.com/'</msg>
+<status status="PASS" starttime="20200310 15:50:27.166" endtime="20200310 15:50:28.122"></status>
+</kw>
+<status status="PASS" starttime="20200310 15:50:25.722" endtime="20200310 15:50:28.122"></status>
+</kw>
+<status status="PASS" starttime="20200310 15:50:25.721" endtime="20200310 15:50:28.122"></status>
+</kw>
+<status status="PASS" starttime="20200310 15:50:25.721" endtime="20200310 15:50:28.122"></status>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>id:hplogo</arg>
+</arguments>
+<msg timestamp="20200310 15:50:28.151" level="INFO">Element 'id:hplogo' is displayed.</msg>
+<status status="PASS" starttime="20200310 15:50:28.123" endtime="20200310 15:50:28.151"></status>
+</kw>
+<kw name="Get WebElement" library="SeleniumLibrary">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>css:[data-pid="2"]</arg>
+</arguments>
+<assign>
+<var>${element}</var>
+</assign>
+<msg timestamp="20200310 15:50:28.168" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="0c8f655d20c7fa955c58d5da9787ca26", element="0.19032152060696594-2")&gt;</msg>
+<status status="PASS" starttime="20200310 15:50:28.151" endtime="20200310 15:50:28.168"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20200310 15:50:28.186" level="INFO">${text} = Immagini</msg>
+<status status="PASS" starttime="20200310 15:50:28.168" endtime="20200310 15:50:28.186"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>\n ${text}</arg>
+</arguments>
+<status status="PASS" starttime="20200310 15:50:28.186" endtime="20200310 15:50:28.186"></status>
+</kw>
+<status status="PASS" starttime="20200310 15:50:25.720" endtime="20200310 15:50:28.186" critical="yes"></status>
+</test>
+<test id="s1-t2" name="tests Chrome">
+<kw name="Open browser">
+<arguments>
+<arg>https://google.com/</arg>
+<arg>Firefox</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${browser}"=="Firefox"</arg>
+<arg>Open firefox browser</arg>
+<arg>${url}</arg>
+<arg>ELSE</arg>
+<arg>Open Chrome browser</arg>
+<arg>${url}</arg>
+</arguments>
+<kw name="Open firefox browser">
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>sys.modules['selenium.webdriver'].FirefoxOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+</arguments>
+<assign>
+<var>${firefox_options}</var>
+</assign>
+<msg timestamp="20200310 15:50:28.189" level="INFO">${firefox_options} = &lt;selenium.webdriver.firefox.options.Options object at 0x7fa376cc6520&gt;</msg>
+<status status="PASS" starttime="20200310 15:50:28.188" endtime="20200310 15:50:28.189"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${firefox_options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+</arguments>
+<status status="PASS" starttime="20200310 15:50:28.189" endtime="20200310 15:50:28.189"></status>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<arguments>
+<arg>Firefox</arg>
+<arg>executable_path=geckodriver</arg>
+<arg>firefox_options=${firefox_options}</arg>
+</arguments>
+<msg timestamp="20200310 15:50:28.189" level="INFO">Creating an instance of the Firefox WebDriver.</msg>
+<status status="PASS" starttime="20200310 15:50:28.189" endtime="20200310 15:50:32.488"></status>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<arguments>
+<arg>1920</arg>
+<arg>1280</arg>
+</arguments>
+<status status="PASS" starttime="20200310 15:50:32.488" endtime="20200310 15:50:32.651"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<msg timestamp="20200310 15:50:32.651" level="INFO">Opening url 'https://google.com/'</msg>
+<status status="PASS" starttime="20200310 15:50:32.651" endtime="20200310 15:50:34.125"></status>
+</kw>
+<status status="PASS" starttime="20200310 15:50:28.188" endtime="20200310 15:50:34.125"></status>
+</kw>
+<status status="PASS" starttime="20200310 15:50:28.188" endtime="20200310 15:50:34.125"></status>
+</kw>
+<status status="PASS" starttime="20200310 15:50:28.187" endtime="20200310 15:50:34.125"></status>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>id:hplogo</arg>
+</arguments>
+<msg timestamp="20200310 15:50:34.150" level="INFO">Element 'id:hplogo' is displayed.</msg>
+<status status="PASS" starttime="20200310 15:50:34.125" endtime="20200310 15:50:34.150"></status>
+</kw>
+<kw name="Get WebElement" library="SeleniumLibrary">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>css:[data-pid="2"]</arg>
+</arguments>
+<assign>
+<var>${element}</var>
+</assign>
+<msg timestamp="20200310 15:50:34.160" level="INFO">${element} = &lt;selenium.webdriver.firefox.webelement.FirefoxWebElement (session="68185fc6-6242-453a-a88a-91c2103ebb46", element="4aaf2296-0790-4065-841a-ddf508c19b08")&gt;</msg>
+<status status="PASS" starttime="20200310 15:50:34.150" endtime="20200310 15:50:34.160"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20200310 15:50:34.175" level="INFO">${text} = Immagini</msg>
+<status status="PASS" starttime="20200310 15:50:34.160" endtime="20200310 15:50:34.175"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>\n ${text}</arg>
+</arguments>
+<status status="PASS" starttime="20200310 15:50:34.175" endtime="20200310 15:50:34.175"></status>
+</kw>
+<status status="PASS" starttime="20200310 15:50:28.187" endtime="20200310 15:50:34.175" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20200310 15:50:25.589" endtime="20200310 15:50:34.176"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0">Critical Tests</stat>
+<stat pass="2" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" id="s1" name="Tests">Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
