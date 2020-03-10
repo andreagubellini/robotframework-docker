@@ -1,6 +1,10 @@
 # robotframework-docker
 
-## usage
+# usage
+## Dockerhub
+You can find this image on dockerhub @ https://hub.docker.com/r/agubellini/robotframework-docker
+
+## Local
 inside `run-docker.sh` change:
 ```
 HOST_TESTDIR=host test dir
