@@ -5,4 +5,4 @@ HOST_TESTDIR=atests
 docker run --rm \
            -v $PWD/$HOST_TESTDIR:/$TESTDIR/ \
            -v $PWD/output:/outputs \
-           robotframework-docker:$VERSION
+           agubellini/robotframework-docker:$VERSION
