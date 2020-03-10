@@ -3,7 +3,6 @@
 ## usage
 inside `run-docker.sh` change:
 ```
-TESTDIR=container test dir
 HOST_TESTDIR=host test dir
 ```
 then:
