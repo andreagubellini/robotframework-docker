@@ -10,6 +10,7 @@ inside `run-docker.sh` change:
 HOST_TESTDIR= this is your local test directory. Example: HOST_TESTDIR=tests
 ROBOTARGS = pass your robotframework arguments through this variable. Has to be included in docker run command.
 THREADS= can be either 1 or 0. If set to 0 then all tests are executed with Robotframework, otherwise if set to 1 all tests will be executed with Pabot.
+SUBTESTDIR= specific folder or tests. Examples: running a specific test: SUBTESTDIR=mysubtestsfolder/mytest.robot running a specific subfolder: SUBTESTDIR=mysubtestsfolder/
 ```
 then:
 `sh run-docker.sh`
