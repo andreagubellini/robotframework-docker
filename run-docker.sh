@@ -10,4 +10,5 @@ docker run --rm \
            -v $PWD/output:/outputs \
            -e ROBOTARGS=$ARGS \
            -e THREADS=$THREADS \
+           -e TESTDIR=$HOST_TESTDIR \
            agubellini/robotframework-docker:$VERSION
