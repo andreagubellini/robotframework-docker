@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 VERSION="latest"
-TESTDIR="tests"
+TESTDIR="atests"
 HOST_TESTDIR=atests
 ARGS="--console-verbose"
 THREADS="0"
