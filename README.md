@@ -22,6 +22,8 @@ robotframework
 robotframework-seleniumlibrary
 robotframework-requests
 robotframework-pabot
+robojslib
+pyyaml
 ```
 
 ## outputs
