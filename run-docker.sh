@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 VERSION="latest"
-TESTDIR=tests/
-SUBTESTDIR=mobile_tests
-HOST_TESTDIR=atests/
+TESTDIR=atests
+SUBTESTDIR=
+HOST_TESTDIR=atests
 ARGS="--console-verbose"
 THREADS="0"
 docker run --rm \
@@ -12,4 +12,4 @@ docker run --rm \
            -e THREADS=$THREADS \
            -e TESTDIR=$TESTDIR \
            -e SUBTESTDIR=$SUBTESTDIR \
-           agubellini/robotframework-docker:$VERSION
+           robotframework-docker:$VERSION

@@ -1,11 +1,12 @@
 FROM python:3.8-slim-buster
 
 ENV CHROMEVERSION=google-chrome-stable
-ENV CHROMEDRIVERVERSION=80.0.3987.106
 ENV TESTDIR=
 ENV THREADS=0
 ENV ROBOTARGS=
 ENV SUBTESTDIR=
+
+RUN python -m pip install --upgrade pip
 
 #=========
 # Chrome
@@ -22,20 +23,20 @@ RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/so
 RUN apt-get update -y
 RUN apt-get install -y $CHROMEVERSION
 
+
 #=========
 # Chromedriver
 #=========
-RUN wget https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip
-RUN unzip chromedriver_linux64.zip
-RUN mv chromedriver /usr/bin/
+RUN apt-get install -yqq unzip
+RUN wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`/chromedriver_linux64.zip
+RUN unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
 RUN apt-get install -y xvfb
 
 #=========
 # Firefox
 #=========
-RUN export DEBIAN_FRONTEND=noninteractive \
-  && apt-get update \
-  && apt-get install --no-install-recommends --no-install-suggests -y \
+RUN apt-get update \
+    && apt-get install --no-install-recommends --no-install-suggests -y \
     # Firefox dependencies:
     libgtk-3-0 \
     libdbus-glib-1-2 \

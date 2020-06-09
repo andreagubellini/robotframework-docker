@@ -6,13 +6,13 @@ tests Firefox
      element should be visible     id:hplogo
      ${element}=    get webelement   css:[data-pid="2"]
      ${text}=  get text  ${element}
-     log to console   \n ${text}
+     log to console   \n${text}
 tests Chrome
      Open browser   https://google.com/    Firefox
      element should be visible     id:hplogo
      ${element}=    get webelement   css:[data-pid="2"]
      ${text}=  get text  ${element}
-     log to console   \n ${text}
+     log to console   \n${text}
 ***Keywords***
 Open browser
     [Arguments]   ${url}    ${browser}
