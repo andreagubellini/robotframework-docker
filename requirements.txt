@@ -3,4 +3,6 @@ robotframework-seleniumlibrary
 robotframework-requests
 robotframework-pabot
 robotframework-jiraissueopener
+facile-toolkit
+robotframework-faker
 pyyaml
