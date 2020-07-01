@@ -6,3 +6,4 @@ robotframework-jiraissueopener
 facile-toolkit
 robotframework-faker
 pyyaml
+exrex
